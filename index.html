@@ -1,1 +1,191 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* 프로필 영역 */
+    .profile {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      position: sticky;
+      top: 20px;
+    }
+
+    .profile img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #00f7ff;
+      box-shadow: 0 0 15px #00f7ff;
+    }
+
+    .profile h2 {
+      margin-bottom: 10px;
+    }
+
+    .profile p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* 게시글 영역 */
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+      animation: shine 1s linear;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(25deg); }
+      100% { transform: translateX(100%) rotate(25deg); }
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #00f7ff;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 0;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #00f7ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .profile {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>✨ My Dev Blog ✨</header>
+
+  <div class="container">
+
+    <!-- 프로필 -->
+    <aside class="profile">
+      <img src="https://via.placeholder.com/100" alt="profile" />
+      <h2>지훈 정</h2>
+      <p>
+        10년차 개발자 ✨<br>
+        백엔드 & 프론트엔드 개발
+        기술과 경험을 공유합니다.
+      </p>
+    </aside>
+
+    <!-- 게시글 목록 -->
+    <main class="posts">
+
+      <div class="card">
+        <h3>🚀 React로 LMS 만들기</h3>
+        <p>React 기반 LMS 프로젝트 구조와 핵심 기능 구현 방법을 소개합니다.</p>
+      </div>
+
+      <div class="card">
+        <h3>🔥 Node.js 서버 배포</h3>
+        <p>클라우드 환경에서 Node.js 서버를 안정적으로 배포하는 방법.</p>
+      </div>
+
+      <div class="card">
+        <h3>💡 MySQL 설계 팁</h3>
+        <p>효율적인 DB 설계를 위한 실무 노하우 정리.</p>
+      </div>
+
+      <div class="card">
+        <h3>✨ CSS 애니메이션</h3>
+        <p>빛나는 UI를 만드는 CSS 효과와 애니메이션 기법.</p>
+      </div>
+
+    </main>
+
+  </div>
+
+  <footer>
+    © 2026 Dev Blog | Built with passion 💙
+  </footer>
+
+</body>
+</html>
